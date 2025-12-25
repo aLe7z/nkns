@@ -1,0 +1,796 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background-color 0.3s, backdrop-filter 0.3s, padding 0.3s;
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    transition: padding 0.3s;
+}
+
+header.scrolled .container {
+    padding: 5px 20px;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    transition: height 0.3s;
+}
+
+header.scrolled .logo img {
+    height: 60px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+nav a.social-icon {
+    font-size: 20px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+nav a.social-icon i {
+    transition: color 0.3s;
+}
+
+nav a.social-icon:has(.fa-instagram) i {
+    color: #E4405F;
+}
+
+nav a.social-icon:has(.fa-facebook) i {
+    color: #1877F2;
+}
+
+nav a.social-icon:has(.fa-spotify) i {
+    color: #1DB954;
+}
+
+nav a.social-icon:has(.fa-youtube) i {
+    color: #FF0000;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+/* Body Padding für fixed Header */
+body {
+    padding-top: 170px;
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Spotify Section */
+#spotify {
+    background-color: #ffffff;
+}
+
+.spotify-player {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.spotify-player iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+.release-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+.divider-line {
+    width: 400px;
+    margin: 20px auto 40px auto;
+    border: none;
+    border-top: 1px solid #000000;
+}
+
+/* Release Show Section */
+#ep-release-show {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 900px;
+    animation: backgroundSlideshow 18s infinite;
+}
+
+@keyframes backgroundSlideshow {
+    0% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Crowd.jpg'); }
+    16.66% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Crowd.jpg'); }
+    16.67% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Drum.jpg'); }
+    33.33% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Drum.jpg'); }
+    33.34% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Jul.jpg'); }
+    50% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Jul.jpg'); }
+    50.01% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Mar.jpg'); }
+    66.66% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Mar.jpg'); }
+    66.67% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Phil.jpg'); }
+    83.33% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Phil.jpg'); }
+    83.34% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Wys.jpg'); }
+    100% { background-image: url('images/ep-release-show-treibhaus/240420_NKNSRelease_Wys.jpg'); }
+}
+
+#ep-release-show::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#ep-release-show .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+.ep-release-show-header {
+    flex-shrink: 0;
+}
+
+#ep-release-show h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.ep-release-show-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #cccccc;
+    letter-spacing: 1px;
+}
+
+.releaseshow-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.releaseshow-content p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.releaseshow-content a {
+    color: #E4405F;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.releaseshow-content a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.photo-credit {
+    font-size: 20px !important;
+    margin-top: 40px !important;
+}
+
+/* New Guitarist Section */
+#new-guitarist {
+    background-image: url('images/NKNSMeggenGarten.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#new-guitarist::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#new-guitarist .container {
+    position: relative;
+    z-index: 2;
+    min-height: 700px;
+}
+
+#new-guitarist h2 {
+    color: #ffffff;
+}
+
+.new-guitarist-content {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.new-guitarist-content p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.new-guitarist-content a {
+    color: #E4405F;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.new-guitarist-content a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Electric Sky Clip Release Section */
+#electric-sky-clip-release {
+    background-color: #ffffff;
+}
+
+.clip-release-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+.clip-video {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.clip-video iframe {
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Album Section */
+#album {
+    background-image: url('images/NoKingsNoSlaves_NLZ.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#album::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+#album .container {
+    position: relative;
+    z-index: 2;
+}
+
+#album h2 {
+    color: #ffffff;
+}
+
+.album-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #cccccc;
+    letter-spacing: 1px;
+}
+
+.album-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.album-cover {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto 40px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.album-text {
+    text-align: center;
+}
+
+.album-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.album-text strong {
+    color: #ffffff;
+}
+
+.album-text h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 35px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.album-text .quote {
+    font-style: italic;
+    color: #e0e0e0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 4px solid #ffffff;
+    margin: 20px 0;
+}
+
+/* Videos Section */
+.video-grid {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+}
+
+.video-main {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.video-main iframe {
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+}
+
+.video-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+}
+
+/* Merch Section */
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    align-items: end;
+}
+
+.merch-item {
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.merch-item:hover {
+    transform: translateY(-5px);
+}
+
+.merch-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    object-position: bottom;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.merch-item h3 {
+    font-size: 14px;
+    margin-top: auto;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.merch-contact {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #000000;
+}
+
+.merch-contact a {
+    color: #E4405F;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.merch-contact a i {
+    font-size: 18px;
+}
+
+.merch-contact a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: #cccccc;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 20px;
+    user-select: none;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+.prev:hover, .next:hover {
+    color: #cccccc;
+}
+
+.merch-item p {
+    margin-bottom: 10px;
+}
+
+.merch-item .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Shows Section */
+.shows-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.show-item {
+    display: flex;
+    gap: 30px;
+    padding: 25px;
+    border: 1px solid #000000;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.show-item:hover {
+    background-color: #f5f5f5;
+}
+
+.show-date {
+    font-size: 24px;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.show-details h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.show-details p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Social Media Section */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 30px;
+    text-align: center;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    width: 150px;
+}
+
+.social-link:hover {
+    background-color: #f5f5f5;
+}
+
+.social-link i {
+    font-size: 48px;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.social-link:hover i {
+    color: inherit;
+}
+
+/* Instagram */
+.social-link:has(.fa-instagram) i {
+    color: #E4405F;
+}
+
+/* Facebook */
+.social-link:has(.fa-facebook) i {
+    color: #1877F2;
+}
+
+/* Spotify */
+.social-link:has(.fa-spotify) i {
+    color: #1DB954;
+}
+
+/* YouTube */
+.social-link:has(.fa-youtube) i {
+    color: #FF0000;
+}
+
+/* SoundCloud */
+.social-link:has(.fa-soundcloud) i {
+    color: #FF5500;
+}
+
+/* Bandcamp */
+.social-link:has(.fa-bandcamp) i {
+    color: #629AA9;
+}
+
+.social-link h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.social-link p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+footer p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Played Concerts Page */
+#played-concerts {
+    min-height: 80vh;
+}
+
+.concerts-list {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.concerts-list ol {
+    list-style-position: outside;
+    padding-left: 30px;
+}
+
+.concerts-list li {
+    font-size: 16px;
+    line-height: 1;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.concerts-list li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    .merch-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .video-main iframe {
+        height: 300px;
+    }
+
+    .video-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .video-item iframe {
+        height: 250px;
+    }
+
+    .show-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
