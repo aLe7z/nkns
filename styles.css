@@ -749,32 +749,41 @@ footer p {
 @media (max-width: 768px) {
     /* Body Padding für kleineres Logo */
     body {
-        padding-top: 140px;
+        padding-top: 100px;
     }
 
     /* Header */
     header .container {
-        flex-direction: column;
+        flex-direction: row;
         gap: 15px;
-        padding: 15px;
+        padding: 10px 15px;
+        align-items: center;
     }
 
     header.scrolled .container {
         padding: 8px 15px;
     }
 
+    .logo {
+        flex-shrink: 0;
+    }
+
     .logo img {
-        height: 80px;
+        height: 60px;
     }
 
     header.scrolled .logo img {
-        height: 50px;
+        height: 45px;
+    }
+
+    nav {
+        flex: 1;
     }
 
     nav ul {
-        gap: 15px;
+        gap: 10px;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
     }
 
     nav a {
@@ -863,61 +872,48 @@ footer p {
 
     /* Album Section */
     #album {
-        background: #000000;
-        padding: 0;
-    }
-
-    #album::before {
-        display: none;
-    }
-
-    #album .container {
-        background: none;
-        padding: 0;
-    }
-
-    #album h2,
-    #album h3 {
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        margin-bottom: 20px;
-    }
-
-    #album h2 {
-        padding-top: 80px;
-    }
-
-    .album-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .album-text {
         background-image: url('images/NoKingsNoSlaves_NLZ.jpg');
         background-size: cover;
         background-position: center center;
+        background-attachment: fixed;
         background-repeat: no-repeat;
-        position: relative;
-        padding: 40px 20px 60px 20px;
-        margin: -140px 0 0 0;
-        padding-top: 140px;
     }
 
-    .album-text::before {
+    #album::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.25);
+        z-index: 1;
+    }
+
+    #album .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    #album h2,
+    #album h3 {
+        color: #ffffff;
+    }
+
+    .album-content {
+        display: block;
+    }
+
+    .album-text {
+        background: none;
+    }
+
+    .album-text::before {
+        display: none;
     }
 
     .album-text > * {
-        position: relative;
-        z-index: 1;
+        position: static;
     }
 
     .video-grid {
